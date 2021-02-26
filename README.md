@@ -1,5 +1,3 @@
-# HNG
-
 # HTTP - HYPERTEXT TRANSFER PROTOCOL
 
 ## What is HTTP? 
@@ -30,6 +28,17 @@ The HTTP protocol is constantly evolving and new features are added to make it w
 **HTTP/1.1** was released in 1997 and its still very much alive, and it's also the fallback protocol anytime HTTP/2 fails. HTTP/1 sends uncompressed headers, transfers only one file at a time over a connection, and has no default encryption.
  
 **HTTP/2** is relatively new in web terms, and as of right now, powers between 70 and 80 percent of all transactions over the web. HTTP/2 is faster and more secure. It uses compression algorithms to speed up requests, allows for multi-plexing, meaning multiple files are sent over connection at the same time and requires an encrypted connection between the client and the server through HTTPS.
+
+### HTTP/1.1 vs. HTTP/2 Protocol
+
+HTTP/2 improved on HTTP/1.1 in a number of ways that allowed for speedier content delivery and improved user experience, including:
+
+- Binary protocols – Binary protocols consume less bandwidth, are more efficiently parsed and are less error-prone than the textual protocols used by HTTP/1.1. Additionally, they can better handle elements such as whitespace, capitalization and line endings.
+- Multiplexing – HTTP/2 is multiplexed, i.e., it can initiate multiple requests in parallel over a single TCP connection. As a result, web pages containing several elements are delivered over one TCP connection. These capabilities solve the head-of-line blocking problem in HTTP/1.1, in which a packet at the front of the line blocks others from being transmitted.
+- Header compression – HTTP/2 uses header compression to reduce the overhead caused by TCP’s slow-start mechanism.
+- Server push – HTTP/2 servers push likely-to-be-used resources into a browser’s cache, even before they’re requested. This allows browsers to display content without additional request cycles.
+- Increased security – Web browsers only support HTTP/2 via encrypted connections, increasing user and application security.
+
 
 ## HTTP TERMINOLOGIES
 
@@ -67,6 +76,7 @@ The header contains metadata about the request facilitating communication betwee
 A cache short-term computer memory where information is stored for easy retrieval. Web servers and clients can cache, so literally store data for a specified length of time to speed up transfers and performance. Websites and web servers can instruct clients to cache files, clear cached files, or update specific cached files.All this is done through instructions passed in a cache header. 
 
 - Cookie
+
 A cookie is a small piece of data stored on the user's computer by the web browser while browsing a website. HTTP is a stateless protocol, meaning there is no link between two requests being sent between the client and the server. When we need to create a stateful session, we can use cookies, small pieces of information passed back and forth between the client and the server in the HTTP header to notify each party of the state the other is in.
 
 ## THE HTTP FLOW
@@ -76,6 +86,26 @@ In an HTTP Flow, First, the browser opens a TCP connection to the server. This e
 Second, the browser sends an HTTP message. This message always contains an HTTP method, like GET, PUT, DELETE or something similar, and a URL pointing at the requested resource. It can also contain headers like cookies or authentication data and data if the browser is submitting data to the server using the post, put, or path methods. Third, the server performs the requested actions and sends a response back to the browser.
 
 This response will contain an HTTP status message indicating what happened, headers with information about the response, and whatever data was requested. This data could be an HTML document or a style sheet or a JavaScript file or image or any other type of content used in a standard website. Finally, once the response is fully received, the TCP connection is closed. Since HTTP is stateless, we are now back to a clean slate. In most scenarios, the first HTTP transaction between a browser and a server is to retrieve a web document for a page or a view. This document typically holds links to CSS and JavaScript files as well as referenced elements like images. Each of these items is fetched from their server and brought into the browser using the same HTTP flow. HTTP/2 allows multiplexing, meaning multiple transactions can take place over the same TCP connection at the the same time. This new protocol also allows the server to push data to the browser. All of this improves performance and reduces the load time for webpages and views significantly. 
+
+## HTTP HEADERS
+
+HTTP headers let the client and the server pass additional information with an HTTP request or response. An HTTP header consists of its case-insensitive name followed by a colon (:), then by its value. Whitespace before the value is ignored.
+
+Headers can be grouped according to their contexts:
+
+- General headers apply to both requests and responses, but with no relation to the data transmitted in the body.
+- Request headers contain more information about the resource to be fetched, or about the client requesting the resource.
+- Response headers hold additional information about the response, like its location or about the server providing it.
+- Entity headers contain information about the body of the resource, like its content length or MIME type.
+
+### REQUEST HEADER
+
+A request header is an HTTP header that can be used in an HTTP request to provide information about the request context, so that the server can tailor the response. For example, the Accept-* headers indicate the allowed and preferred formats of the response. Other headers can be used to supply authentication credentials (e.g.  Authorization), to control caching, or to get information about the user agent or referrer, etc. 
+
+### RESPONSE HEADER
+
+A response header is an HTTP header that can be used in an HTTP response and that doesn't relate to the content of the message. Response headers, like Age, Location or Server are used to give a more detailed context of the response.
+
 
 ## ANATOMY OF A URL
 
