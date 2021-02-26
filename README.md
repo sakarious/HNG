@@ -111,7 +111,7 @@ A response header is an HTTP header that can be used in an HTTP response and tha
 
 A URL is a human-readable address, describing exactly where on the web and in what location on a server the information you are requesting is located. Below is an example of a URL 
 
-**https://facebook.com/sakarious/profile?u1232**
+> **https://facebook.com/sakarious/profile?u1232**
 
 The URL has two main pieces, a protocol declaration, and a Universal Resource Name, or URN. This URN provides the location of the resource. The protocol declaration states how we are accessing that resource using the http methods and transport layer. The URN itself is made up of several pieces. First, we have the host. This is the domain which is registered at a domain name service, or DNS and this domain points to a dedicated server IP address, somewhere on the web. Next, we have the implied, and usually invisible, connection port, stating which port we want to access on the server. For http connections, the default port is 80. For https connections, the default port is 443. As long as the server uses either of these ports, we don't see the port declared. If the server uses another port or we want to access another port, say 8080, that port can be declared using a colon, localhost:8080. After the host and port comes the resource path. This is the file location within the server. The default names for web documents are index.html and default.html. If we request a folder without a file specification, the server and browser automatically look for files named either index.html or default.html or index.php or similar and returns that file to us. If the file is called anything else, like about.html or contact.php, etc., the resource path needs to list the filename specifically.\s\s
 
